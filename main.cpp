@@ -86,6 +86,7 @@ int main() {
         }
         else if(input =="lower")
         {
+            cout<<"mazen"<<Endl;
             pair<int,int>p;
             int num1,num2;cin>> num1>> num2;
             p= make_pair(num1,num2);
@@ -108,7 +109,8 @@ int main() {
         else
         {
             pair<int,int>p;
-            int num1,num2;cin>> num1>> num2;
+            int num1,num2;cin>>
+            num1>> num2;
             p= make_pair(num1,num2);
             int l=0,r=size-1,mid=(l+r)/2,flag=-1;
             while(l<=r)
