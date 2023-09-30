@@ -1,151 +1,99 @@
-//#include<bits/stdc++.h>
-/*
-#include<iostream>
-#include<list>
-#include<forward_list>
-#include<numeric>
-#include<algorithm>
-#include<utility>
-#include<string>
-#include<deque>
-#include<queue>
-#include<cmath>
-#include<set>
-#include<stack>
-#define ll long long
-#define Endl endl
-#define fastread() ios::sync_with_stdio(NULL),cin.tie(nullptr),cout.tie(nullptr)
-using namespace std;
-
-int main() {
-    fastread();
-    forward_list<int>fl;
-    fl.assign({1,2,3,4,5,6});
-    list<int>l;
-
-
-
-
-}
-*/
 #include <bits/stdc++.h>
 #define ll long long
+#define mahmoud_eldoksh ios_base::sync_with_stdio(0), cout.tie(0),cin.tie(0);
 #define Endl endl
 #define fastread() ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
 using namespace std;
-bool sortbysec(  map<string,string>a,map<string ,string>b)
+bool sortbysec(  const pair<int,int> & a,const pair<int ,int > & b)
 {
-    auto it1=a.begin();
-    auto it2=b.begin();
-    if(it1->second==it2->second)
+
+    if(a.first-a.second== b.first-b.second)
     {
-        return it1->first>it2->first;
+        return a.first<b.first;
     }
-    return (it1->second < it2->second);
+    return (a.first-a.second < b.first-b.second);
+}
+ll   SumDigit(ll   num)
+{
+    ll sum =0;
+    while(num )
+    {
+        ll rem = num %10;
+        sum += rem;
+        num /=10;
+    }
+    return sum ;
+}
+bool check(vector<int>v)
+{
+    for (int i = 1; i <v.size()-1 ; ++i) {
+        if(v[i]<v[i-1]){return false;}
+    }
+    return true;
+}
+bool check(vector<int>v[1000],int size)
+{
+    reverse(v->begin(),v->end());
+    for (int i = 2; i < size ; ++i) {
+        if(v[i].size()==0||v[i-1].size()==0){continue;}
+        if(v[i].size()>=3&&v[i-1].size()<=3){return false;}
+    }
+    return true;
+}
+bool knowDigit(int n,int i)
+{
+    return (1&(n>>i));
+}
+int  setDigit(int n ,int i )
+{
+    n= n|(1 << i);
+    return n ;
+}
+int  resetDigit(int n ,int i)
+{
+    n =n & (~ (1<<i));
+    return n;
+}
+int  fileb (int n ,int i)
+{
+    n ^=(1<<i);
+    return n;
+}
+
+ll fib( ll x)
+{
+    if (x == 1|| x== 2){return 1;}
+    return fib(x-1) + fib(x-2);
+}
+ll exp( ll c ,ll b )
+{
+    int ans;
+    if(b == 0 ){return ans;}
+    ans *=c;
+    exp(c,b -1 );
+}
+ll power(ll a ,ll b )
+{
+    if(b== 0){return 1;}
+    return a * power(a , b-1);
+}
+ll fpower(ll a ,ll b)
+{
+    if(b==0){return 1;}
+    ll ans = a * (a, b / 2);
+    return (b&1)?a * ans * ans : ans*ans;
+}
+ll GCD(ll a , ll b )
+{
+    if(b  == 0 ){return a;}
+    return GCD(b ,a % b);
+}
+ll LCM(ll a , ll b)
+{
+    return a * (b / GCD(a,b));
 }
 int main() {
     fastread();
-    int size,q;
-    cin>>size>>q;
-    vector<pair<int,int>>v(size);
-    for (int i = 0; i <size ; ++i) {
-        cin>>v[i].first>>v[i].second;
-    }
-    while(q--){
-        string input;cin>>input;
-        if(input=="find")
-        {
-            pair<int,int>p;
-            int num1,num2;cin>> num1>> num2;
-            p= make_pair(num1,num2);
-            int l=0,r=size-1,mid=(l+r)/2,flag=0;
-            while(l<=r)
-            {
-                mid=(l+r)/2;
-                if(v[mid]==p)
-                {
-                    flag=1;break;
-                }
-                if(v[mid]>p)
-                {
-                    r=mid-1;
-                }
-                else
-                {
-                    l=mid+1;
-                }
-            }
-            if(flag==1)
-            {
-                cout<<"found"<<endl;
-            }
-            else
-            {
-                cout<<"not found"<<endl;
-            }
-        }
-        else if(input =="lower")
-        {
-            cout<<"mazen"<<Endl;
-            pair<int,int>p;
-            int num1,num2;cin>> num1>> num2;
-            p= make_pair(num1,num2);
-            int l=0,r=size-1,mid=(l+r)/2,flag=-1;
-            while(l<=r)
-            {
-                mid=(l+r)/2;
-                if(v[mid]<p)
-                {
-                    l=mid+1;
-                    flag=mid;
-                }
-                else
-                {
-                    r=mid-1;
-                }
-            }
-            cout<<flag<<endl;
-        }
-        else
-        {
-            pair<int,int>p;
-            int num1,num2;cin>>
-            num1>> num2;
-            p= make_pair(num1,num2);
-            int l=0,r=size-1,mid=(l+r)/2,flag=-1;
-            while(l<=r)
-            {
-                mid=(l+r)/2;
-                if(v[mid]>p)
-                {
-                    r=mid-1;
-                    flag=mid;
-                }
-                else
-                {
-                    l=mid+1;
-                }
-            }
-            cout<<flag<<endl;
-        }
-    }
+    mahmoud_eldoksh
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
