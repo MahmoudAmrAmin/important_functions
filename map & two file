@@ -1,0 +1,202 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define mahmoud_eldoksh ios_base::sync_with_stdio(0), cout.tie(0),cin.tie(0);
+#define Endl endl
+#define fastread() ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+using namespace std;
+class stack{
+
+};
+/*const int  N = 1e6+6;
+bool sortbysec(  const pair<int,int> & a,const pair<int ,int > & b)
+{
+
+    if(a.first-a.second== b.first-b.second)
+    {
+        return a.first<b.first;
+    }
+    return (a.first-a.second < b.first-b.second);
+}
+ll   SumDigit(ll   num)
+{
+    ll sum =0;
+    while(num )
+    {
+        ll rem = num %10;
+        sum += rem;
+        num /=10;
+    }
+    return sum ;
+}
+bool check(vector<int>v)
+{
+    for (int i = 1; i <v.size()-1 ; ++i) {
+        if(v[i]<v[i-1]){return false;}
+    }
+    return true;
+}
+bool check(vector<int>v[1000],int size)
+{
+    reverse(v->begin(),v->end());
+    for (int i = 2; i < size ; ++i) {
+        if(v[i].size()==0||v[i-1].size()==0){continue;}
+        if(v[i].size()>=3&&v[i-1].size()<=3){return false;}
+    }
+    return true;
+}
+bool knowDigit(int n,int i)
+{
+    return (1&(n>>i));
+}
+int  setDigit(int n ,int i )
+{
+    n= n|(1 << i);
+    return n ;
+}
+int  resetDigit(int n ,int i)
+{
+    n =n & (~ (1<<i));
+    return n;
+}
+int  fileb (int n ,int i)
+{
+    n ^=(1<<i);
+    return n;
+}
+
+ll fib( ll x)
+{
+    if (x == 1|| x== 2){return 1;}
+    return fib(x-1) + fib(x-2);
+}
+ll exp( ll c ,ll b )
+{
+    int ans;
+    if(b == 0 ){return ans;}
+    ans *=c;
+    exp(c,b -1 );
+}
+ll power(ll a ,ll b )
+{
+    if(b== 0){return 1;}
+    return a * power(a , b-1);
+}
+ll fpower(ll a ,ll b)
+{
+    if(b==0){return 1;}
+    ll ans = a * (a, b / 2);
+    return (b&1)?a * ans * ans : ans*ans;
+}
+ll GCD(ll a , ll b )
+{
+    if(b  == 0 ){return a;}
+    return GCD(b ,a % b);
+}
+ll LCM(ll a , ll b)
+{
+    return a * (b / GCD(a,b));
+}*/
+/*
+void merge (int * beginA , int *beginB, int*  endB)
+{
+    int sizA = beginB - beginA ;
+    int sizB = endB - beginB  ;
+    int indexA , indexB , indexC ;
+    while(indexA < sizA && indexB< sizB) {
+        if (beginA[indexA] < beginB[indexB]) { c[indexC++] = beginA[indexA++]; }
+        else { c[indexC++] = beginB[indexB++]; }
+    }
+    while(indexA  < sizA){c[indexC++] = beginA[indexA++];}
+    while(indexB < sizB ){c[indexC++] = beginB[indexB++];}
+    copy(c , c+indexC , beginA);
+}
+*/
+
+/*
+void mergesort(int * p1 , int  * p2 )
+{
+    int size = p2 - p1;
+    if(size == 1 ){return;}
+    mergesort(p1 , p1 + size / 2);
+    mergesort(p1 + size/2 , p2);
+    merge(p1 , p1+size/2 ,p2);
+}
+*/
+/*int n  , c ;vector<int>v(n);
+bool clac(int mid )
+{
+    int cow = 1 ;
+    int temp = v[0];
+    for (int i = 1; i < n ; ++i)
+    {
+      if( v[i] - temp >= mid ) {temp =v[i]; cow ++ ;}
+    }
+    if(cow >= c){return true;}
+    return false ;
+}*/
+unsigned  ll segma(unsigned  ll num )
+{
+
+    unsigned  ll res = ( num * ( num + 1 ) ) / 2;
+    return res;
+}
+enum week {sunday ,monday ,tuseday , wednesday ,thursday , friday ,saturday};
+int main ()
+{
+    mahmoud_eldoksh
+    /*int size , k ; cin>>size >> k;
+    string c; cin >>c;
+    int p1=0,p2=0 , i=0 , j=0;
+    int mx=INT_MIN  ,lena=0,lenb=0;
+    while(p2<size && p1<=p2)
+    {
+        if(c[p2] == c[p1]&&c[p2]=='a'){lena++;p2++;}
+        else if(c[p2] == c[p1]&&c[p2]=='b'){lenb++;p2++;}
+        else if(c[p2] != c[p1]&&c[p2]=='b')
+        {
+
+            if(lena > mx){ mx=lena; i = p2-1 ,j = p1; }
+            lenb=1;
+            p1=p2;
+            p2++;
+        }
+        else{
+
+            lena=1;
+            if(lenb > mx){ mx=lenb; i = p2-1 ,j = p1; }
+            p1=p2;p2++;
+        }
+    }
+    while()*/
+    int sizes  ,sizec; cin >>sizes ;
+    string s ; cin >>s;
+    set<char>c;
+    for (int i = 0; i < sizes; ++i) {
+        c.insert(s[i]);
+    }
+    sizec = c.size();
+    deque<char>dq;
+    map<char ,int>map1;
+    int l = 0 ,r = 0 ,ans = INT_MAX;
+    while(l < sizes)
+    {
+        while ( r < sizes && map1.size() < sizec )
+        {
+            dq.push_back(s[r]);
+            map1[s[r]]++;
+            r++;
+        }
+        int dqsize = dq.size();
+        if(map1.size() == sizec) {
+            ans = min(ans, dqsize);
+        }
+        map1[s[l]]--;
+        if(map1[s[l]]== 0)
+        {
+         map1.erase(s[l]);
+        }
+        dq.pop_front() ;
+        l++;
+    }
+    cout<<ans;
+}
